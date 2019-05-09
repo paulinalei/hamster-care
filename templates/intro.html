@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} Introduction {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <p>Meet Almond, your new pet hamster.</p>
+    <img src="static/images/almond.png"></img>
+    <a href="{{ url_for('cage') }}">Next</a>
+{% endblock %}

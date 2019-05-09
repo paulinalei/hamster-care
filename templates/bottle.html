@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} Water Bottle {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <p>Fill up the bottle.</p>
+    <img id="hamster-bottle" src="static/images/hamster-bottle.png"></img>
+    <a href="{{ url_for('wheel') }}">Previous</a>
+    <a href="{{ url_for('play') }}">Next</a>
+{% endblock %}
+{% block scripts %}
+<script>
+    var index = 0;
+    var bottlelist = [
+        "static/images/hamster-bottle-2.png"
+    ];
+    $(document).on("keydown", function(event) {
+        if (event.keyCode == 39) {
+            console.log("hello");
+            $("#hamster-bottle").attr("src", bottlelist[index]);
+            index++;
+        }
+    });
+
+</script>
+{% endblock %}

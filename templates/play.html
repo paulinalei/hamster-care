@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Introduction {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <span style="position: absolute;">
+        <img src="../static/images/almond.png">
+    </span>
+    <a href="{{ url_for('bottle') }}">Previous</a>
+    <a href="{{ url_for('bottle') }}">Next</a>
+{% endblock %}
+{% block scripts %}
+<script>
+    function dragMe(imageDragged) {
+        $(this).on('mousemove', function (e) {  
+            imageDragged.css({
+                left: e.pageX,
+                top: e.pageY
+            });
+        });
+    }
+
+    function imageDrag(){
+        var imageDragged = null;
+    
+        $('span').on('mousedown', function (e) {
+            event.stopPropagation();
+            if (imageDragged === null) {
+                imageDragged = $(this);
+                console.log(imageDragged);
+                dragMe(imageDragged);
+            }
+        });
+    }
+  
+    $(function() {
+        imageDrag();
+    });
+
+
+</script>
+{% endblock %}

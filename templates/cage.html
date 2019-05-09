@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Cage {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <p>Choose which cage that Almond will live in.</p>
+    <!-- divs for images to choose here -->
+    {% if picture1 %}
+        <img src="{{ picture1 }}"></img>
+    {% endif %}
+    {% if picture2 %}
+        <img src="{{ picture2 }}"></img>
+    {% endif %}
+    <a href="{{ url_for('introduction') }}">Previous</a>
+    <a href="{{ url_for('wheel') }}">Next</a>
+{% endblock %}

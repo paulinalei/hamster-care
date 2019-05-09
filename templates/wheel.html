@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Wheel {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <p>Choose which wheel Almond will run on.</p>
+    <!-- divs for images to choose here -->
+    {% if picture1 %}
+    <img src="{{ picture1 }}"></img>
+    {% endif %}
+    {% if picture2 %}
+    <img src="{{ picture2 }}"></img>
+    {% endif %}
+    <a href="{{ url_for('cage') }}">Previous</a>
+    <a href="{{ url_for('bottle') }}">Next</a>
+{% endblock %}
